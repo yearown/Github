@@ -48,7 +48,6 @@ Shader "Custom/OutLine2"
 			{
 				float2 uv : TEXCOORD0;
 				float4 pos : SV_POSITION;
-
 			};
 
 			sampler2D _MainTex;
@@ -59,6 +58,7 @@ Shader "Custom/OutLine2"
 				v2f o;
 				o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
 				o.pos = UnityObjectToClipPos(v.vertex);
+				//沿着法线的方向对顶点进行外延
 				float4 vnormal = UnityObjectToClipPos(float4(v.normal,0));
 				vnormal.z += 0.00001;
 				o.pos += vnormal * _OutlineFactor;
