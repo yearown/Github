@@ -26,11 +26,11 @@
 		struct SurfaceOutputLine
 		{
 			fixed3 Diffuse;
-		    fixed3 Albedo;      
-		    fixed3 Normal;     
+		    	fixed3 Albedo;      
+		    	fixed3 Normal;     
 			fixed3 Tangent;
-		    half3  Emission;
-		    fixed  Alpha;
+		    	half3  Emission;
+		    	fixed  Alpha;
 		};
 
 		fixed4 _Color;
@@ -54,7 +54,7 @@
 			fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
-			half rim = 1 - saturate(dot(normalize(o.Normal),normalize(IN.viewDir)));			
+			half rim = 1 - saturate(dot(normalize(o.Normal),normalize(IN.viewDir)));						
 			o.Emission = pow(rim,_RimPower) * _RimColor;
 		}
 
