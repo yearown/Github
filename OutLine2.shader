@@ -9,9 +9,9 @@ Shader "Custom/OutLine2"
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_Diffuse("Diffuse", Color) = (1,1,1,1)  
-        _OutlineCol("OutlineCol", Color) = (1,0,0,1)  
-        _OutlineFactor("OutlineFactor", Range(0,1)) = 0.1  
-        _Color ("Main Color", Color) = (1, 1, 1, 1)
+        	_OutlineCol("OutlineCol", Color) = (1,0,0,1)  
+        	_OutlineFactor("OutlineFactor", Range(0,1)) = 0.1  
+        	_Color ("Main Color", Color) = (1, 1, 1, 1)
 	}
 	SubShader
 	{
