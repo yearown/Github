@@ -28,7 +28,7 @@ Shader "Custom/OutLine2"
 			
 			#include "UnityCG.cginc"
 			fixed4 _OutlineCol;  
-            float _OutlineFactor;  
+            		float _OutlineFactor;  
 			#define float_t    half
 			#define float2_t   half2
 			#define float3_t   half3
