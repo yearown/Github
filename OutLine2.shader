@@ -72,9 +72,11 @@ Shader "Custom/OutLine2"
 				//获取rgb中对大的值
 				float_t maxChan = max(max(diffuseMapColor.r,diffuseMapColor.g),diffuseMapColor.b);
 				float4_t newMapColor = diffuseMapColor;
-				
+				//最大的值减去1/255,这里是经验公式
 				maxChan -= (1.0/255.0);
+				//将最大值组成的rgb与原始颜色做差值,在乘以一个放大系数.
 				float3_t lerpVals = saturate((newMapColor.rgb - float3(maxChan,maxChan,maxChan)) * 255.0);
+				//通过颜色差值在做因子做lerp,当颜色的差值比较大时越靠近原始颜色,否则偏暗.
 				newMapColor.rgb = lerp(SATURATION_FACTOR * newMapColor.rgb,newMapColor.rgb,lerpVals);
 				return float4(BRIGHTNESS_FACTOR * newMapColor.rgb * diffuseMapColor.rgb,diffuseMapColor.a) * _Color * _LightColor0;
 
