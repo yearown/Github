@@ -69,9 +69,10 @@ Shader "Custom/OutLine2"
 			fixed4 frag (v2f i) : SV_Target
 			{
 				float4_t diffuseMapColor = tex2D(_MainTex,i.uv);
+				//获取rgb中对大的值
 				float_t maxChan = max(max(diffuseMapColor.r,diffuseMapColor.g),diffuseMapColor.b);
 				float4_t newMapColor = diffuseMapColor;
-
+				
 				maxChan -= (1.0/255.0);
 				float3_t lerpVals = saturate((newMapColor.rgb - float3(maxChan,maxChan,maxChan)) * 255.0);
 				newMapColor.rgb = lerp(SATURATION_FACTOR * newMapColor.rgb,newMapColor.rgb,lerpVals);
